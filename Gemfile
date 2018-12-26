@@ -29,9 +29,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# appended on 2018.12.26 by Ihara
+### appended on 2018.12.26 by Ihara ###
 gem 'haml-rails'
 gem 'dotenv-rails'
+# user login
 gem 'devise'
 # gem 'gretel'
 
@@ -47,6 +48,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  ### appended on 2018.12.26 by Ihara ###
+  # show model schema
+  gem 'annotate'
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
+  # n+1問題
+  gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
