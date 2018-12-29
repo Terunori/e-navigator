@@ -1,0 +1,19 @@
+%h1 プロフィール情報を登録してください。
+
+= form_for current_user, url: update_profile_path, method: :patch do |f|
+  %div.field
+    %p
+      = f.label :name
+      = f.text_field :name
+    %p
+      = f.label :birthday
+      = f.date_field :birthday
+    %p
+      = f.label :gender
+      = f.select :gender, User.genders.keys
+    %p
+      = f.label :school
+      = f.text_field :school
+
+  %div
+    = f.submit "Update"

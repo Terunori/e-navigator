@@ -22,7 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum sex: { female: 0, male: 1, others: 2 }
+  enum gender: { female: 0, male: 1, others: 2 }
 
   def age
     date_format = "%Y%m%d"
