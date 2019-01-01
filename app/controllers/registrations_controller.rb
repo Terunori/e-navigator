@@ -13,9 +13,14 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def mypage
+
+  end
+
   protected
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:update_profile, keys: [:name])
+
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :birthday, :gender, :school])
   end
 
 end

@@ -1,6 +1,6 @@
 %h1 プロフィール情報を登録してください。
 
-= form_for current_user, url: update_profile_path, method: :patch do |f|
+= form_for current_user, url: {action: :update_profile}, method: :patch do |f|
   %div.field
     %p
       = f.label :name
