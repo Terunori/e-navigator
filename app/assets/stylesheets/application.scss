@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+
+table {
+  border-collapse:  collapse; /* セルの線を重ねる */
+  table-layout: fixed;
+}
+
+tr:nth-child(odd) {
+  background-color:  #ddd;    /* 背景色指定 */
+}
+
+th,td {
+  padding: 5px 10px;          /* 余白指定 */
+}

@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_user!
 
   def edit_profile
@@ -11,12 +11,6 @@ class RegistrationsController < Devise::RegistrationsController
       redirect_to mypage_path, notice: 'プロフィールを更新しました'
     else
       render :edit_profile
-    end
-  end
-
-  def mypage
-    unless current_user.birthday
-      redirect_to edit_profile_path, notice: 'プロフィールを正しく登録してください'
     end
   end
 

@@ -25,6 +25,11 @@ en:
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
         updated_at: Updated at
+        name: Name
+        birthday: Birthday
+        age: Age
+        gender: Gender
+        school: School
     models:
       user:
         one: User

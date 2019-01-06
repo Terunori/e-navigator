@@ -1,5 +1,12 @@
+%h2 ユーザ一覧
 
-- @users.each do |user|
-  %p= user.id
-  %p= user.name
-  %p= user.email
+%table
+  %tr
+    %th
+    %th= t('activerecord.attributes.user.email')
+    %th= t('activerecord.attributes.user.name')
+  - @users.each do |user|
+    %tr
+      %td= user.id
+      %td= user.email
+      %td= user.name

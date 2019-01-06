@@ -1,0 +1,28 @@
+%h2 マイページ
+
+%table
+  %tr
+    %td= t('activerecord.attributes.user.id')
+    %td= current_user.id
+  %tr
+    %td= t('activerecord.attributes.user.name')
+    %td= current_user.name
+  %tr
+    %td= t('activerecord.attributes.user.email')
+    %td= current_user.email
+  %tr
+    %td= t('activerecord.attributes.user.birthday')
+    %td= current_user.birthday
+  %tr
+    %td= t('activerecord.attributes.user.age')
+    %td
+      = current_user.age
+      歳
+  %tr
+    %td= t('activerecord.attributes.user.gender')
+    %td= current_user.gender
+
+  %tr
+    %td= t('activerecord.attributes.user.school')
+    %td= current_user.school
+
