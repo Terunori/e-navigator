@@ -3,6 +3,9 @@
 = form_for current_user, url: {action: :update_profile}, method: :patch do |f|
   %div.field
     %p
+      = f.label :email
+      = f.text_field :email
+    %p
       = f.label :name
       = f.text_field :name
     %p

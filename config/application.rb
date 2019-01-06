@@ -11,6 +11,7 @@ require "action_view/railtie"
 # require "action_cable/engine"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+require 'devise'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -27,5 +28,8 @@ module ENavigator
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Japanese
+    config.i18n.default_locale = :ja
   end
 end

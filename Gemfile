@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'dotenv-rails'
 # user login
-gem 'devise'
+gem 'devise-i18n'
 # gem 'gretel'
 
 group :development, :test do

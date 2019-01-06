@@ -51,6 +51,7 @@
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, rbenv: 2.5.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.3, rbenv: 2.5.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.5.0, rbenv: 2.5.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="devise-i18n (v1.7.0, rbenv: 2.5.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v2.5.0, rbenv: 2.5.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv-rails (v2.5.0, rbenv: 2.5.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, rbenv: 2.5.3) [gem]" level="application" />
