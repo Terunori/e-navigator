@@ -21,6 +21,7 @@ module ENavigator
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.i18n.fallbacks = 'ja'
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -28,9 +29,6 @@ module ENavigator
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    # Japanese
-    config.i18n.default_locale = :ja
 
     # for heroku, asset precompile
     config.assets.initialize_on_precompile = false

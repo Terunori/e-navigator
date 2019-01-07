@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def mypage
     unless current_user.birthday
-      redirect_to edit_profile_path, notice: 'プロフィールを正しく登録してください'
+      redirect_to edit_profile_path, alert: 'プロフィールを正しく登録してください'
     end
   end
 

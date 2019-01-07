@@ -1,12 +1,10 @@
 %h2 ユーザ一覧
 
-%table
+%table.table.table-hover
   %tr
-    %th
-    %th= t('activerecord.attributes.user.email')
-    %th= t('activerecord.attributes.user.name')
+    %th.col-xs-4= t('activerecord.attributes.user.email')
+    %th.col-xs-6= t('activerecord.attributes.user.name')
   - @users.each do |user|
     %tr
-      %td= user.id
       %td= user.email
       %td= user.name

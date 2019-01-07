@@ -10,6 +10,11 @@ en:
         current_sign_in_at: Current sign in at
         current_sign_in_ip: Current sign in IP
         email: Email
+        name: Name
+        birthday: Birthday
+        age: Age
+        gender: Gender
+        school: School
         encrypted_password: Encrypted password
         failed_attempts: Failed attempts
         last_sign_in_at: Last sign in at
@@ -25,16 +30,11 @@ en:
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
         updated_at: Updated at
-        name: Name
-        birthday: Birthday
-        age: Age
-        gender: Gender
-        school: School
     models:
       user:
         one: User
         other: Users
-  users:
+  devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
       new:
@@ -106,6 +106,8 @@ en:
         unhappy: Unhappy?
         update: Update
         we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      edit_profile:
+        update: Update
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.
@@ -148,3 +150,9 @@ en:
       not_saved:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  enums:
+    user:
+      gender:
+        female: Female
+        male: Male
+        others: Others

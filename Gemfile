@@ -32,8 +32,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'dotenv-rails'
 # user login
+gem 'devise'
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 # gem 'gretel'
+
+### appended on 2019.01.08 by Ihara ###
+gem 'devise-bootstrap-views'
+gem 'font-awesome-rails'
+gem 'enum_help'
+gem 'bootstrap-sass'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,9 +1,9 @@
 %h2 マイページ
 
-%table
+%table.table.table-hover
   %tr
-    %td= t('activerecord.attributes.user.name')
-    %td= current_user.name
+    %td.col-xs-3= t('activerecord.attributes.user.name')
+    %td.col-xs-7= current_user.name
   %tr
     %td= t('activerecord.attributes.user.email')
     %td= current_user.email
