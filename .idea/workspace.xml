@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26a4b939-bd07-435a-a315-a8bf96e90cc6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="26a4b939-bd07-435a-a315-a8bf96e90cc6" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -163,7 +160,7 @@
         <counts>
           <entry key="Gemfile" value="235" />
           <entry key="erb" value="304" />
-          <entry key="gitignore" value="66" />
+          <entry key="gitignore" value="67" />
           <entry key="haml" value="26465" />
           <entry key="md" value="84" />
           <entry key="rb" value="1394" />
@@ -175,7 +172,7 @@
         <counts>
           <entry key="Haml" value="26465" />
           <entry key="Markdown" value="84" />
-          <entry key="PLAIN_TEXT" value="66" />
+          <entry key="PLAIN_TEXT" value="67" />
           <entry key="RHTML" value="304" />
           <entry key="Ruby" value="1629" />
           <entry key="SCSS" value="2" />
@@ -198,8 +195,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="165" column="14" selection-start-line="165" selection-start-column="14" selection-end-line="165" selection-end-column="14" />
+            <state relative-caret-position="29">
+              <caret line="161" selection-start-line="161" selection-end-line="161" />
             </state>
           </provider>
         </entry>
@@ -514,12 +511,12 @@
       <workItem from="1546313190792" duration="16897000" />
       <workItem from="1546779132207" duration="6563000" />
       <workItem from="1546828308753" duration="366000" />
-      <workItem from="1546830014569" duration="592000" />
+      <workItem from="1546830014569" duration="840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40312000" />
+    <option name="totallyTimeSpent" value="40560000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,7 +543,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32917964" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.497558" visible="true" weight="0.3955774" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.497558" visible="true" weight="0.8697789" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.502442" side_tool="true" weight="0.18002081" />
       <window_info anchor="bottom" id="データベース・コンソール" order="12" sideWeight="0.4993895" weight="0.27641279" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.30169052" />
@@ -788,8 +785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="165" column="14" selection-start-line="165" selection-start-column="14" selection-end-line="165" selection-end-column="14" />
+        <state relative-caret-position="29">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
         </state>
       </provider>
     </entry>
