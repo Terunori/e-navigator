@@ -33,10 +33,12 @@
   %div.container
     - if notice.present?
       %div.alert.alert-success
+        %a.close{"aria-label" => "Close", "data-dismiss" => "alert"} &times;
         %p= notice
 
     -if alert.present?
       %div.alert.alert-danger
+        %a.close{"aria-label" => "Close", "data-dismiss" => "alert"} &times;
         %p= alert
 
     = yield
