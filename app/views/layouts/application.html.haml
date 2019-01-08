@@ -24,7 +24,8 @@
               %li.nav-item= link_to 'マイページ', mypage_path
               %li.nav-item= link_to 'パスワード変更', edit_user_registration_path
               %li.nav-item= link_to 'プロフィール編集', edit_profile_path
-              %li.nav-item.disabled= link_to 'メール'
+              -# TODO 後半でメール機能実装予定
+              -#%li.nav-item.disabled= link_to 'メール'
               %li.nav-item= link_to "ログアウト", destroy_user_session_path , method: :delete
           - else
             %ul.nav.navbar-nav.navbar-right

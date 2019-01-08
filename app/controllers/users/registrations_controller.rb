@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  include UsersHelper
   before_action :authenticate_user!
 
   def edit_profile
@@ -7,17 +8,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_profile
     current_user.assign_attributes(account_update_params)
-    if current_user.save
+    if profile_validate
       redirect_to mypage_path, notice: 'プロフィールを更新しました'
     else
-      render :edit_profile
+      redirect_to edit_profile_path
     end
   end
 
-  protected
-
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :birthday, :gender, :school])
-  end
+  # 必要ないのでは
+  # protected
+  #
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :birthday, :gender, :school])
+  # end
 
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :authenticate_user!
 
   def index
@@ -6,9 +7,7 @@ class UsersController < ApplicationController
   end
 
   def mypage
-    unless current_user.birthday
-      redirect_to edit_profile_path, alert: 'プロフィールを正しく登録してください'
-    end
+    redirect_to edit_profile_path unless profile_validate
   end
 
 end
