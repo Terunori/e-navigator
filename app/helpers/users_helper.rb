@@ -10,7 +10,7 @@ module UsersHelper
 
   private
   def param_alert(key, message)
-    if key == nil
+    if key == nil || key == ''
       flash[:alert] = message
       return false
     end
