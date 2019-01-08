@@ -20,6 +20,7 @@
               Logged in as
               %span.text-success= current_user.email
             %ul.nav.navbar-nav.navbar-right
+              %li.nav-item= link_to 'ユーザ一覧', root_path
               %li.nav-item= link_to 'マイページ', mypage_path
               %li.nav-item= link_to 'パスワード変更', edit_user_registration_path
               %li.nav-item= link_to 'プロフィール編集', edit_profile_path
