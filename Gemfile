@@ -35,7 +35,6 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-# gem 'gretel'
 
 ### appended on 2019.01.08 by Ihara ###
 gem 'devise-bootstrap-views'
@@ -65,6 +64,8 @@ group :development do
   gem 'binding_of_caller'
   # n+1問題
   gem 'bullet'
+  ### appended on 2019.01.08 by Ihara ###
+  gem 'rubocop'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
