@@ -1,0 +1,22 @@
+%h2 プロフィール情報を登録してください。
+
+= form_for current_user, url: {action: :update_profile}, method: :patch do |f|
+  %div.form-group
+    = f.label :email
+    = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+  %div.form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  %div.form-group
+    = f.label :birthday
+    = f.date_field :birthday, class: 'form-control'
+  %div.form-group
+    = f.label :gender
+    %br
+    = f.select :gender, User.genders_i18n.keys.map {|k| [User.genders_i18n[k], k]}, class: 'form-control'
+  %div.form-group
+    = f.label :school
+    = f.text_field :school, class: 'form-control'
+
+  %div.form-group
+    = f.submit (t'.update'), class: 'btn btn-primary'

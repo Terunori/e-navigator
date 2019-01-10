@@ -1,0 +1,24 @@
+%h2 マイページ
+
+%table.table.table-hover
+  %tr
+    %td.col-xs-3= t('activerecord.attributes.user.name')
+    %td.col-xs-7= current_user.name
+  %tr
+    %td= t('activerecord.attributes.user.email')
+    %td= current_user.email
+  %tr
+    %td= t('activerecord.attributes.user.birthday')
+    %td= current_user.birthday
+  %tr
+    %td= t('activerecord.attributes.user.age')
+    %td
+      = current_user.age
+      歳
+  %tr
+    %td= t('activerecord.attributes.user.gender')
+    %td= current_user.gender
+
+  %tr
+    %td= t('activerecord.attributes.user.school')
+    %td= current_user.school

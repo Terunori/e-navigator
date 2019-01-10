@@ -12,4 +12,15 @@
  *
  *= require_tree .
  *= require_self
+ *= require_devise_bootstrap_views
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// navbar: fixed
+body { padding-top: 70px; }
+
+.container {
+  width: 80%;
+  margin: 0 10%;
+}

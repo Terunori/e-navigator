@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ENavigator
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+
+  %body
+    %nav.navbar.navbar-default.navbar-fixed-top
+      %div.container
+        %div.navbar-header
+          %a.navbar-brand(href="/" )
+            %strong e-Navigator
+
+        %div.collapse.navbar-collapse
+          - if user_signed_in?
+            %span.navbar-text
+              Logged in as
+              %span.text-success= current_user.email
+            %ul.nav.navbar-nav.navbar-right
+              %li.nav-item= link_to 'ユーザ一覧', root_path
+              %li.nav-item= link_to 'マイページ', mypage_path
+              %li.nav-item= link_to 'パスワード変更', edit_user_registration_path
+              %li.nav-item= link_to 'プロフィール編集', edit_profile_path
+              -# TODO 後半でメール機能実装予定
+              -#%li.nav-item.disabled= link_to 'メール'
+              %li.nav-item= link_to "ログアウト", destroy_user_session_path , method: :delete
+          - else
+            %ul.nav.navbar-nav.navbar-right
+              %li.nav-item= link_to "新規登録", new_user_registration_path
+              %li.nav-item= link_to "ログイン", new_user_session_path
+
+  %div.container
+    - if notice.present?
+      %div.alert.alert-success
+        %a.close{"aria-label" => "Close", "data-dismiss" => "alert"} &times;
+        %p= notice
+
+    -if alert.present?
+      %div.alert.alert-danger
+        %a.close{"aria-label" => "Close", "data-dismiss" => "alert"} &times;
+        %p= alert
+
+    = yield

@@ -212,6 +212,11 @@ masterブランチ以外をデプロイしたい場合は以下のようにし�
 $ git push heroku ブランチ名:master
 ```
 
+データベース構造を変更したときはHerokuでのマイグレーションが必要です
+```
+$ heroku run rails db:migrate
+```
+
 正しくデプロイできたか確認してみましょう。
 
 ```

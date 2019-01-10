@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
@@ -29,6 +28,21 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+### appended on 2018.12.26 by Ihara ###
+gem 'haml-rails'
+gem 'dotenv-rails'
+# user login
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+### appended on 2019.01.08 by Ihara ###
+gem 'devise-bootstrap-views'
+gem 'font-awesome-rails'
+gem 'enum_help'
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -41,6 +55,17 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  ### appended on 2018.12.26 by Ihara ###
+  # show model schema
+  gem 'annotate'
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
+  # n+1問題
+  gem 'bullet'
+  ### appended on 2019.01.08 by Ihara ###
+  gem 'rubocop'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
