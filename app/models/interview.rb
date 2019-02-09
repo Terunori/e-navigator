@@ -12,6 +12,6 @@
 #
 
 class Interview < ApplicationRecord
-  enum allowed: { undecided: 0, allewed: 1, disallowed:2 }
+  enum allowed: { undecided: 0, allewed: 1, disallowed: 2 }
   belongs_to :user
 end
