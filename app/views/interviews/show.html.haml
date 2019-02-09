@@ -1,17 +1,20 @@
 %h2 面接一覧
 
 - if params[:user_id].to_i == current_user.id then
+  #TODO POST =link_to (new)
+
   %table.table.table-hover
     %tr
-      %th.col-xs-3 面接開始時間
-      %th.col-xs-3 面接官
+      %th.col-xs-2 面接開始時間
+      %th.col-xs-2 面接官
       %th.col-xs-2 承認状態
       %th.col-xs-1
       %th.col-xs-1
     - current_user.interviews.each do |intview|
       %tr
-        %td= intview.begin_at
-        %td= intview.interviewer.email
-        %td= intview.allowed
-        %td edit
-        %td delete
+        %td= intview.begin_at.to_s(:datatime)
+        %td
+          = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
+        %td= intview.allowed_i18n
+        %td edit #TODO EDIT, update =link_to
+        %td delete #TODO DELETE =link_to

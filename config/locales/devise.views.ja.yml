@@ -15,6 +15,7 @@ ja:
         age: "年齢"
         gender: "性別"
         school: "出身大学・大学院"
+        interview: "面接"
         encrypted_password: "暗号化パスワード"
         failed_attempts: "失敗したログイン試行回数"
         last_sign_in_at: "最終ログイン時刻"
@@ -32,6 +33,12 @@ ja:
         updated_at: "更新日"
     models:
       user: "ユーザ"
+    errors:
+      models:
+        user:
+          attributes:
+              interview:
+                required: "面接日程を入力してください"
   devise:
     confirmations:
       confirmed: "アカウントを登録しました。"
@@ -152,3 +159,9 @@ ja:
         female: "女性"
         male: "男性"
         others: "その他"
+    interview:
+      allowed:
+        undecided: "保留"
+        allowed: "承認"
+        disallowed: "却下"
+
