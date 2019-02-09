@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   enum gender: { female: 0, male: 1, others: 2 }
   has_many :interviews
+  belongs_to :interview, primary_key: :interviewer_id
 
   def age
     date_format = "%Y%m%d"

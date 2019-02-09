@@ -10,8 +10,8 @@
       %th.col-xs-1
     - current_user.interviews.each do |intview|
       %tr
-        %td user
-        %td interviewer
-        %td allowed
+        %td= intview.begin_at
+        %td= intview.interviewer.email
+        %td= intview.allowed
         %td edit
         %td delete

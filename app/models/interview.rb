@@ -14,4 +14,5 @@
 class Interview < ApplicationRecord
   enum allowed: { undecided: 0, allewed: 1, disallowed: 2 }
   belongs_to :user, dependent: :destroy
+  has_one :interviewer, class_name: 'User', primary_key: :interviewer_id, foreign_key: :id
 end
