@@ -1,16 +1,17 @@
 %h2 面接一覧
 
-%table.table.table-hover
-  %tr
-    %th.col-xs-3 面接開始時間
-    %th.col-xs-3 面接官
-    %th.col-xs-2 承認状態
-    %th.col-xs-1
-    %th.col-xs-1
-  -#- @interviews.each do |intview|
-  %tr
-    %td user
-    %td interviewer
-    %td allowed
-    %td edit
-    %td delete
+- if params[:user_id].to_i == current_user.id then
+  %table.table.table-hover
+    %tr
+      %th.col-xs-3 面接開始時間
+      %th.col-xs-3 面接官
+      %th.col-xs-2 承認状態
+      %th.col-xs-1
+      %th.col-xs-1
+    - current_user.interviews.each do |intview|
+      %tr
+        %td user
+        %td interviewer
+        %td allowed
+        %td edit
+        %td delete

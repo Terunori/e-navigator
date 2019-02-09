@@ -2,13 +2,13 @@
 #
 # Table name: interviews
 #
-#  id          :bigint(8)        not null, primary key
-#  user        :string
-#  interviewer :string
-#  begin_at    :datetime
-#  allowed     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :bigint(8)        not null, primary key
+#  user_id        :bigint(8)
+#  interviewer_id :bigint(8)
+#  begin_at       :datetime
+#  allowed        :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 class Interview < ApplicationRecord

@@ -16,12 +16,14 @@ ActiveRecord::Schema.define(version: 20190209004618) do
   enable_extension "plpgsql"
 
   create_table "interviews", force: :cascade do |t|
-    t.string "user"
-    t.string "interviewer"
+    t.bigint "user_id"
+    t.bigint "interviewer_id"
     t.datetime "begin_at"
     t.integer "allowed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["interviewer_id"], name: "index_interviews_on_interviewer_id"
+    t.index ["user_id"], name: "index_interviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +42,6 @@ ActiveRecord::Schema.define(version: 20190209004618) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "interviews", "users"
+  add_foreign_key "interviews", "users", column: "interviewer_id"
 end
