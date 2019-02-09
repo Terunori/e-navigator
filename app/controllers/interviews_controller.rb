@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-  before_action :set_my_thread, only: [:update,:edit,:destroy]
+  before_action :set_my_thread, only: [ :update, :edit, :destroy ]
 
   def new
     @interview = Interview.new

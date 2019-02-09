@@ -16,6 +16,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
 
 // navbar: fixed
 body { padding-top: 70px; }
@@ -24,3 +26,4 @@ body { padding-top: 70px; }
   width: 80%;
   margin: 0 10%;
 }
+

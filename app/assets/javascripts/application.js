@@ -14,3 +14,10 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require moment
+//= require moment/ja
+//= require bootstrap-datetimepicker
+
+$(function () {
+  $('#datetimepicker').datetimepicker();
+});
