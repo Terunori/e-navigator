@@ -2,6 +2,9 @@
 
 - if params[:user_id].to_i == current_user.id then
   - #TODO POST =link_to (new: 開始時間だけ入力、面接官は相手依存、状態は保留に)
+  =link_to "新規日程追加", new_user_interviews_path, class: 'btn btn-primary'
+
+  %br
 
   %table.table.table-hover
     %tr
@@ -14,7 +17,8 @@
       %tr
         %td= intview.begin_at.to_s(:datatime)
         %td
-          = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
+          - unless intview.interviewer_id == nil
+            = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
         %td= intview.allowed_i18n
         - #TODO EDIT, update =link_to 時間の編集、保留状態に戻すかどうかの確認を入れる
         %td edit
