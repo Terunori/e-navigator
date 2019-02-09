@@ -58,7 +58,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   ### appended on 2018.12.26 by Ihara ###
-  # show model schema
+  # index model schema
   gem 'annotate'
   # エラー画面をわかりやすく整形してくれる
   gem 'better_errors'

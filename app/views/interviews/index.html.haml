@@ -2,7 +2,7 @@
 
 - if params[:user_id].to_i == current_user.id then
   - #TODO POST =link_to (new: 開始時間だけ入力、面接官は相手依存、状態は保留に)
-  =link_to "新規日程追加", new_user_interviews_path, class: 'btn btn-primary'
+  =link_to "新規日程追加", new_user_interview_path, class: 'btn btn-primary'
 
   %br
   %br
@@ -16,14 +16,16 @@
       %th.col-xs-1
     - current_user.interviews.each do |intview|
       %tr
-        %td= intview.begin_at.to_s(:datatime)
+        %td= l(intview.begin_at, format: :short)
         %td
           - unless intview.interviewer_id == nil
             = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
         %td= intview.allowed_i18n
         - #TODO EDIT, update =link_to 時間の編集、保留状態に戻すかどうかの確認を入れる
         %td 編集
-        -#%td= link_to "編集", edit_user_interviews_path, class: 'btn btn-primary'
+        %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
+
+
         - #TODO DELETE この面接日程の削除
         %td 削除
         -#%td= link_to "削除", user_interviews_path, method: :delete, class: 'btn btn-primary'

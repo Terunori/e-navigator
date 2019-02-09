@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index] do
-    resource :interviews
+    resources :interviews
   end
   devise_scope :user do
     delete 'logout', to: 'devise/sessions#destroy'

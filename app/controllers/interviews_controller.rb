@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-  before_action :set_my_thread, only: [ :update, :edit, :destroy ]
+  before_action :set_interview, only: [ :update, :edit, :destroy ]
 
   def new
     @interview = Interview.new
@@ -9,7 +9,7 @@ class InterviewsController < ApplicationController
 
   end
 
-  def show
+  def index
 
   end
 
@@ -38,11 +38,11 @@ class InterviewsController < ApplicationController
 
   private
   def interview_params
-    params.permit(:user_id, :begin_at, :allowed, :num)
+    params.permit(:user_id, :begin_at, :allowed, :interview_id)
   end
 
   def set_interview
-    @interview = Interview.find(params[:num])
+    @interview = Interview.find(params[:id])
   end
 
 end
