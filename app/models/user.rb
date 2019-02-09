@@ -12,7 +12,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  birthday               :date
-#  sex                    :integer
+#  gender                 :integer
 #  school                 :string
 #
 
@@ -23,6 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum gender: { female: 0, male: 1, others: 2 }
+  has_many :interviews
 
   def age
     date_format = "%Y%m%d"
