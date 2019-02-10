@@ -14,7 +14,14 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    if @interview.update(interview_params)
+    p = interview_params.to_h
+    if interview_params[:init].to_i == 1
+      p[:allowed] = 0
+      p[:interviewer_id] = nil
+    end
+    p.delete :init
+
+    if @interview.update(p)
       redirect_to user_interviews_path
     else
       render 'edit'
@@ -31,14 +38,13 @@ class InterviewsController < ApplicationController
     if @interview.save
       redirect_to user_interviews_path
     else
-      # flash[:alert] = 'failed'
       render 'new'
     end
   end
 
   private
   def interview_params
-    params.permit(:user_id, :begin_at, :allowed, :interview_id)
+    params.permit(:id, :user_id, :begin_at, :allowed, :interview_id, :init)
   end
 
   def set_interview
