@@ -22,7 +22,7 @@
             = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
         %td= intview.allowed_i18n
         - #TODO EDIT, update =link_to 時間の編集、保留状態に戻すかどうかの確認を入れる
-        %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-warning'
+        %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
 
         - #TODO DELETE この面接日程の削除
         %td= link_to "削除", user_interview_path(id: intview.id), method: :delete, class: 'btn btn-danger'

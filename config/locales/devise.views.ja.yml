@@ -31,14 +31,17 @@ ja:
         unconfirmed_email: "未確認Eメール"
         unlock_token: "ロック解除用トークン"
         updated_at: "更新日"
+      interview:
+        begin_at: "面接日程"
     models:
       user: "ユーザ"
     errors:
       models:
-        user:
+        interview:
           attributes:
-              interview:
-                required: "面接日程を入力してください"
+            begin_at:
+              taken: ": 重複した日程は指定できません"
+              past: ": 未来の日時を指定してください"
   devise:
     confirmations:
       confirmed: "アカウントを登録しました。"
