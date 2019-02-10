@@ -23,8 +23,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum gender: { female: 0, male: 1, others: 2 }
-  has_many :interviews
-  belongs_to :interview, primary_key: :interviewer_id, optional: true
+  has_many :interviews, dependent: :nullify
+  belongs_to :interview, primary_key: :interviewer_id, optional: true, dependent: :destroy
 
   def age
     date_format = "%Y%m%d"
