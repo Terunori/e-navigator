@@ -40,8 +40,8 @@ ja:
         interview:
           attributes:
             begin_at:
-              taken: ": 重複した日程は指定できません"
-              past: ": 未来の日時を指定してください"
+              taken: ": 重複した日程は指定できません。"
+              past: ": 未来の日時を指定してください。"
   devise:
     confirmations:
       confirmed: "アカウントを登録しました。"
