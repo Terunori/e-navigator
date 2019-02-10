@@ -216,6 +216,10 @@ $ git push heroku ブランチ名:master
 ```
 $ heroku run rails db:migrate
 ```
+Herokuのタイムゾーン設定 (JST)
+```
+heroku config:add TZ=Asia/Tokyo
+```
 
 正しくデプロイできたか確認してみましょう。
 
