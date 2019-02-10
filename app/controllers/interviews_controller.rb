@@ -3,6 +3,7 @@ class InterviewsController < ApplicationController
 
   def new
     @interview = Interview.new
+    @now_dt = DateTime.now
   end
 
   def edit

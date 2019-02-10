@@ -4,7 +4,7 @@
   %div.input-group.date#datetimepicker
     %span.input-group-addon
       %span.glyphicon.glyphicon-calendar
-    = f.text_field :begin_at, class: 'form-control'
+    = f.text_field :begin_at, class: 'form-control', value: @now_dt
 
 
   = f.hidden_field :allowed, value: 'undecided'
