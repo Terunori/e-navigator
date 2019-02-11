@@ -37,6 +37,6 @@ class User < ApplicationRecord
 
   private
   def nullify_interviewer
-    Interview.where(interviewer_id: self.id).update_all(interviewer_id: nil)
+    Interview.where(interviewer_id: self.id).update_all(interviewer_id: nil, allowed: 0)
   end
 end
