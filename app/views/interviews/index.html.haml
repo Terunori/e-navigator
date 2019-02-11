@@ -18,7 +18,10 @@
         %td= l(intview.begin_at, format: :short)
         %td
           - unless intview.interviewer_id == nil
-            = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
+            - if intview.interviewer.name.present?
+              = intview.interviewer.name.to_s + ' (' +  intview.interviewer.email.to_s + ')'
+            - else
+              = intview.interviewer.email
         - cls = intview.allowed
         %td{class: cls}= intview.allowed_i18n
         %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
