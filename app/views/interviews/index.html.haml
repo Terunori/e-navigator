@@ -8,9 +8,9 @@
 
   %table.table.table-hover
     %tr
-      %th.col-xs-2 面接開始時間
-      %th.col-xs-4 面接官
-      %th.col-xs-3 状態
+      %th.col-xs-3 面接開始時間
+      %th.col-xs-5 面接官
+      %th.col-xs-2 状態
       %th.col-xs-1
       %th.col-xs-1
     - current_user.interviews.includes(:interviewer).each do |intview|
@@ -19,6 +19,7 @@
         %td
           - unless intview.interviewer_id == nil
             = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
-        %td= intview.allowed_i18n
+        - cls = intview.allowed
+        %td{class: cls}= intview.allowed_i18n
         %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
         %td= link_to "削除", user_interview_path(id: intview.id), method: :delete, class: 'btn btn-danger'
