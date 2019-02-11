@@ -12,9 +12,9 @@
 #
 
 class Interview < ApplicationRecord
-  enum allowed: { undecided: 0, allewed: 1, disallowed: 2 }
+  enum allowed: { undecided: 0, allowed: 1, disallowed: 2 }
   belongs_to :user
-  has_one :interviewer, class_name: 'User', primary_key: :interviewer_id, foreign_key: :id
+  has_one :interviewer, class_name: 'User', foreign_key: :id, primary_key: :interviewer_id
 
   validate :interview_must_future
   validates :begin_at, uniqueness: true

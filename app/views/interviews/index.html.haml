@@ -1,7 +1,6 @@
 %h2 面接一覧
 
 - if params[:user_id].to_i == current_user.id then
-  - #TODO POST =link_to (new: 開始時間だけ入力、面接官は相手依存、状態は保留に)
   =link_to "新規日程追加", new_user_interview_path, class: 'btn btn-primary'
 
   %br
@@ -14,15 +13,12 @@
       %th.col-xs-2 状態
       %th.col-xs-1
       %th.col-xs-1
-    - current_user.interviews.each do |intview|
+    - current_user.interviews.includes(:interviewer).each do |intview|
       %tr
         %td= l(intview.begin_at, format: :short)
         %td
           - unless intview.interviewer_id == nil
             = intview.interviewer.name.to_s + '(' +  intview.interviewer.email.to_s + ')'
         %td= intview.allowed_i18n
-        - #TODO EDIT, update =link_to 時間の編集、保留状態に戻すかどうかの確認を入れる
         %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
-
-        - #TODO DELETE この面接日程の削除
         %td= link_to "削除", user_interview_path(id: intview.id), method: :delete, class: 'btn btn-danger'
