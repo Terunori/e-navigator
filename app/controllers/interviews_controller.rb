@@ -32,7 +32,7 @@ class InterviewsController < ApplicationController
   end
 
   def create
-    @interview = Interview.create(interview_params)
+    @interview = Interview.new(interview_params)
     if @interview.save
       redirect_to user_interviews_path
     else
