@@ -11,7 +11,7 @@ class InterviewsController < ApplicationController
   end
 
   def index
-    @interviews = current_user.interviews.includes(:interviewer)
+    @interviews = current_user.interviews.includes(:interviewer).order(begin_at: :asc)
   end
 
   def update
