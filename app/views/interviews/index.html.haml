@@ -13,7 +13,7 @@
       %th.col-xs-2 状態
       %th.col-xs-1
       %th.col-xs-1
-    - current_user.interviews.includes(:interviewer).each do |intview|
+    - @interviews.each do |intview|
       %tr
         %td= l(intview.begin_at, format: :short)
         %td
