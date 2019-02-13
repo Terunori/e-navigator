@@ -9,7 +9,7 @@
   %br
 
   %div.checkbox_inline
-    = f.check_box :init
+    = f.check_box :allowed, {}, "undecided", @interview.allowed
     承認状態を初期化する場合はチェックしてください  （現在は
     = @interview.allowed_i18n + '）'
 

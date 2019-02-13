@@ -15,14 +15,11 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    p = interview_params.to_h
-    if interview_params[:init].to_i == 1
-      p[:allowed] = 0
-      p[:interviewer_id] = nil
+    int_params = interview_params.to_h
+    if interview_params[:allowed].to_s == 'undecided'
+      int_params[:interviewer_id] = nil
     end
-    p.delete :init
-
-    if @interview.update(p)
+    if @interview.update(int_params)
       redirect_to user_interviews_path
     else
       render 'edit'
@@ -45,7 +42,7 @@ class InterviewsController < ApplicationController
 
   private
   def interview_params
-    params.permit(:id, :user_id, :begin_at, :allowed, :interview_id, :init)
+    params.permit(:user_id, :begin_at, :allowed, :interviewer_id)
   end
 
   def set_interview
