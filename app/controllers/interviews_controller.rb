@@ -15,11 +15,10 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    int_params = interview_params.to_h
-    if interview_params[:allowed].to_s == 'undecided'
-      int_params[:interviewer_id] = nil
-    end
-    if @interview.update(int_params)
+    @interview.attributes = interview_params
+    @interview.interviewer_id = nil if interview_params[:allowed] == 'undecided'
+
+    if @interview.save
       redirect_to user_interviews_path
     else
       render 'edit'
