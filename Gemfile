@@ -68,6 +68,8 @@ group :development do
   gem 'bullet'
   ### appended on 2019.01.08 by Ihara ###
   gem 'rubocop'
+  ### appended on 2019.02.18 by Ihara ###
+  gem 'rails-erd'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
