@@ -1,4 +1,5 @@
 class InterviewsController < ApplicationController
+  before_action :correct_user, only: [:new, :create, :edit, :destroy]
   before_action :set_interview, only: [ :update, :edit, :destroy ]
 
   def new
@@ -41,6 +42,12 @@ class InterviewsController < ApplicationController
   end
 
   private
+  def correct_user
+    user = User.find(params[:user_id])
+    if current_user != user
+      redirect_to root_path
+    end
+  end
   def interview_params
     params.permit(:user_id, :begin_at, :allowed, :interviewer_id)
   end
