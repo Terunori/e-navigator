@@ -9,7 +9,7 @@
     %th.col-xs-2= t('activerecord.attributes.user.school')
     %th.col-xs-2= "承認済み面接日程"
     %th.col-xs-1
-  - @users.where.not(id: current_user.id).each do |user|
+  - @users.each do |user|
     %tr
       %td= user.email
       %td= user.name

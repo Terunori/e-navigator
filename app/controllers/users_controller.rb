@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   include UsersHelper
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id).order(id: :asc)
     @interviews = Interview.where(interviewer_id: current_user.id, allowed: 'allowed').order(begin_at: :asc)
   end
 
