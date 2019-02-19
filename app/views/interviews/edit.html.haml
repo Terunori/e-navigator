@@ -1,6 +1,6 @@
 %h2 日程を編集してください
 
-= form_with url: user_interview_url(params[:user_id]), method: :patch, local: true do |f|
+= form_with url: user_interview_url, method: :patch, local: true do |f|
   %div.input-group.date#datetimepicker
     %span.input-group-addon
       %span.glyphicon.glyphicon-calendar
