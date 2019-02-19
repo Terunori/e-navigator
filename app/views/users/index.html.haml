@@ -15,4 +15,4 @@
       %td= user.age if user.birthday.present?
       %td= user.gender_i18n
       %td= user.school
-      %td= link_to "面接日程", user_interviews_path(user_id: user.id), class: 'btn btn-primary'
+      %td= link_to "面接日程", user_interviews_path(user_id: user.id), class: 'btn btn-default'

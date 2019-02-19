@@ -16,7 +16,7 @@
             = intview.interviewer.email
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
-      %td= link_to "承認状態の変更", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
+      %td= link_to "キャンセル", user_interview_path(user_id: params[:user_id], id: intview.id, allowed: 'undecided'), method: :patch, local: true, class: 'btn btn-default'
 
 %h3 その他の日程
 %table.table.table-hover
@@ -24,7 +24,8 @@
     %th.col-xs-3 面接開始時間
     %th.col-xs-5 面接官
     %th.col-xs-2 状態
-    %th.col-xs-2
+    %th.col-xs-1
+    %th.col-xs-1
   - @interviews.where(allowed: [0,2]).each do |intview|
     %tr
       %td= l(intview.begin_at, format: :short)
@@ -36,4 +37,7 @@
             = intview.interviewer.email
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
-      %td= link_to "承認状態の変更", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
+      %td
+        = link_to "承認", user_interview_path(user_id: params[:user_id], id: intview.id, allowed: 'allowed', interviewer_id: current_user.id), method: :patch, local: true, class: 'btn btn-primary'
+      %td
+        = link_to "却下", user_interview_path(user_id: params[:user_id], id: intview.id, allowed: 'disallowed', interviewer_id: current_user.id), method: :patch, local: true, class: 'btn btn-danger'
