@@ -42,6 +42,8 @@ gem 'font-awesome-rails'
 gem 'enum_help'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'momentjs-rails', '>= 2.9.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,7 +58,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   ### appended on 2018.12.26 by Ihara ###
-  # show model schema
+  # index model schema
   gem 'annotate'
   # エラー画面をわかりやすく整形してくれる
   gem 'better_errors'
@@ -66,6 +68,8 @@ group :development do
   gem 'bullet'
   ### appended on 2019.01.08 by Ihara ###
   gem 'rubocop'
+  ### appended on 2019.02.18 by Ihara ###
+  gem 'rails-erd'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

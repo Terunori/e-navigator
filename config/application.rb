@@ -32,5 +32,9 @@ module ENavigator
     # for heroku, asset precompile
     config.assets.initialize_on_precompile = false
 
+    # timezone
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+
   end
 end

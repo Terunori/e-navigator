@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:index] do
+    resources :interviews
+  end
   devise_scope :user do
     delete 'logout', to: 'devise/sessions#destroy'
     get 'users/edit_profile', to: 'users/registrations#edit_profile', as: 'edit_profile'

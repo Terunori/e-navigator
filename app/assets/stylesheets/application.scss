@@ -16,11 +16,32 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
 
 // navbar: fixed
-body { padding-top: 70px; }
+body {
+  padding-top: 75px;
+}
+
+@media screen and (max-width:767px) {
+  padding-top: 140px;
+}
 
 .container {
   width: 80%;
   margin: 0 10%;
 }
+
+table {
+  td {
+    vertical-align: middle !important;
+  }
+  td.allowed {
+    color: #428bca;
+  }
+  td.disallowed {
+    color: #d9534f;
+  }
+}
+

@@ -12,7 +12,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  birthday               :date
-#  sex                    :integer
+#  gender                 :integer
 #  school                 :string
 #
 
@@ -24,8 +24,19 @@ class User < ApplicationRecord
 
   enum gender: { female: 0, male: 1, others: 2 }
 
+  # TODO before_destroy
+  before_destroy :nullify_interviewer, prepend: true
+
+  has_many :interviews, dependent: :destroy
+  belongs_to :interviewer, class_name: 'Interview', foreign_key: :id, optional: true
+
   def age
     date_format = "%Y%m%d"
     (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
+  end
+
+  private
+  def nullify_interviewer
+    Interview.where(interviewer_id: self.id).update_all(interviewer_id: nil, allowed: 0)
   end
 end

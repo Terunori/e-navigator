@@ -22,6 +22,7 @@
             %ul.nav.navbar-nav.navbar-right
               %li.nav-item= link_to 'ユーザ一覧', root_path
               %li.nav-item= link_to 'マイページ', mypage_path
+              %li.nav-item= link_to '面接管理' , user_interviews_path(current_user.id)
               %li.nav-item= link_to 'パスワード変更', edit_user_registration_path
               %li.nav-item= link_to 'プロフィール編集', edit_profile_path
               -# TODO 後半でメール機能実装予定
@@ -42,5 +43,11 @@
       %div.alert.alert-danger
         %a.close{"aria-label" => "Close", "data-dismiss" => "alert"} &times;
         %p= alert
+
+    -if @interview.present?
+      - @interview.errors.full_messages.each do |message|
+        %div.alert.alert-danger
+          %a.close{"aria-label" => "Close", "data-dismiss" => "alert"} &times;
+          %P= message
 
     = yield

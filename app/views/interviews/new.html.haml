@@ -1,0 +1,14 @@
+%h2 新しい面接日程を指定してください
+
+= form_with url: user_interviews_url, method: :post, local: true do |f|
+  %div.input-group.date#datetimepicker
+    %span.input-group-addon
+      %span.glyphicon.glyphicon-calendar
+    = f.text_field :begin_at, class: 'form-control', value: @now_dt
+
+
+  = f.hidden_field :allowed, value: 'undecided'
+  
+  %br
+
+  = f.submit '追加', class: 'btn btn-primary', data: { disabled_with: '追加中...' }
