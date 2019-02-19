@@ -7,12 +7,14 @@
     %th.col-xs-1= t('activerecord.attributes.user.age')
     %th.col-xs-1= t('activerecord.attributes.user.gender')
     %th.col-xs-2= t('activerecord.attributes.user.school')
+    %th.col-xs-2= "承認済み面接日程"
     %th.col-xs-1
-  - @users.each do |user|
+  - @users.where.not(id: current_user.id).each do |user|
     %tr
       %td= user.email
       %td= user.name
       %td= user.age if user.birthday.present?
       %td= user.gender_i18n
       %td= user.school
+      %td= l(@interviews.where(user_id: user.id).first.begin_at, format: :short) if @interviews.where(user_id: user.id).present?
       %td= link_to "面接日程", user_interviews_path(user_id: user.id), class: 'btn btn-default'

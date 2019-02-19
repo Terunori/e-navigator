@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @interviews = Interview.where(interviewer_id: current_user.id, allowed: 'allowed').order(begin_at: :asc)
   end
 
   def mypage
