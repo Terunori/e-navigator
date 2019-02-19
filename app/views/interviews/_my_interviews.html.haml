@@ -3,6 +3,7 @@
 %br
 %br
 
+%h3 承認済みの日程
 %table.table.table-hover
   %tr
     %th.col-xs-3 面接開始時間
@@ -10,7 +11,29 @@
     %th.col-xs-2 状態
     %th.col-xs-1
     %th.col-xs-1
-  - @interviews.each do |intview|
+  - @interviews.where(allowed: 1).each do |intview|
+    %tr
+      %td= l(intview.begin_at, format: :short)
+      %td
+        - unless intview.interviewer_id == nil
+          - if intview.interviewer.name.present?
+            = intview.interviewer.name.to_s + ' (' +  intview.interviewer.email.to_s + ')'
+          - else
+            = intview.interviewer.email
+      - cls = intview.allowed
+      %td{class: cls}= intview.allowed_i18n
+      %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
+      %td= link_to "削除", user_interview_path(id: intview.id), method: :delete, class: 'btn btn-danger'
+
+%h3 その他の日程
+%table.table.table-hover
+  %tr
+    %th.col-xs-3 面接開始時間
+    %th.col-xs-5 面接官
+    %th.col-xs-2 状態
+    %th.col-xs-1
+    %th.col-xs-1
+  - @interviews.where(allowed: [0, 2]).each do |intview|
     %tr
       %td= l(intview.begin_at, format: :short)
       %td
