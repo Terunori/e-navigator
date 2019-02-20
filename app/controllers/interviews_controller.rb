@@ -17,8 +17,8 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    @interview.attributes = interview_params
-    @interview.interviewer_id = nil if interview_params[:allowed] == 'undecided'
+    @interview.attributes = update_interview_params
+    @interview.interviewer_id = nil if update_interview_params[:allowed] == 'undecided'
 
     if @interview.save
       redirect_to user_interviews_path
@@ -28,8 +28,8 @@ class InterviewsController < ApplicationController
   end
 
   def allow
-    @interview.attributes = others_interview_params
-    @interview.interviewer_id = nil if interview_params[:allowed] == 'undecided'
+    @interview.attributes = allow_interview_params
+    @interview.interviewer_id = nil if allow_interview_params[:allowed] == 'undecided'
 
     if @interview.save
       redirect_to user_interviews_path
@@ -44,7 +44,7 @@ class InterviewsController < ApplicationController
   end
 
   def create
-    @interview = current_user.interviews.build(interview_params)
+    @interview = current_user.interviews.build(update_interview_params)
     if @interview.save
       redirect_to user_interviews_path
     else
@@ -67,11 +67,11 @@ class InterviewsController < ApplicationController
     redirect_to user_interviews_path if current_user != @user
   end
 
-  def interview_params
+  def update_interview_params
     params.permit(:begin_at, :allowed)
   end
 
-  def others_interview_params
+  def allow_interview_params
     params.permit(:allowed, :interviewer_id)
   end
 
