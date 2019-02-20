@@ -44,7 +44,8 @@ class InterviewsController < ApplicationController
   end
 
   def create
-    @interview = current_user.interviews.build(update_interview_params)
+    @interview = current_user.interviews.build(create_interview_params)
+    @interview.allowed = 'undecided'
     if @interview.save
       redirect_to user_interviews_path
     else
@@ -65,6 +66,10 @@ class InterviewsController < ApplicationController
   def correct_user
     set_user
     redirect_to user_interviews_path if current_user != @user
+  end
+
+  def create_interview_params
+    params.permit(:begin_at)
   end
 
   def update_interview_params
