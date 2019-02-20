@@ -16,7 +16,7 @@
             = intview.interviewer.email
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
-      %td= link_to "キャンセル", allow_user_interview_path(id: intview.id, allowed: 'undecided'), method: :patch, local: true, class: 'btn btn-default'
+      %td= link_to "キャンセル", allow_user_interview_path(id: intview.id, allowed: 'undecided'), method: :patch, class: 'btn btn-default'
 
 %h3 その他の日程
 %table.table.table-hover
@@ -38,6 +38,6 @@
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
       %td
-        = link_to "承認", allow_user_interview_path(id: intview.id, allowed: 'allowed', interviewer_id: current_user.id), method: :patch, local: true, class: 'btn btn-primary'
+        = link_to "承認", allow_user_interview_path(id: intview.id, allowed: 'allowed', interviewer_id: current_user.id), method: :patch, class: 'btn btn-primary'
       %td
-        = link_to "却下", allow_user_interview_path(id: intview.id, allowed: 'disallowed', interviewer_id: current_user.id), method: :patch, local: true, class: 'btn btn-danger'
+        = link_to "却下", allow_user_interview_path(id: intview.id, allowed: 'disallowed', interviewer_id: current_user.id), method: :patch, class: 'btn btn-danger'
