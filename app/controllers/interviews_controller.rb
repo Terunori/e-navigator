@@ -1,4 +1,5 @@
 class InterviewsController < ApplicationController
+  before_action :set_user, only: [:index]
   before_action :correct_user, only: [:new, :create, :edit, :update ,:destroy]
   before_action :set_interview, only: [ :update, :allow, :edit, :destroy ]
 
@@ -12,8 +13,7 @@ class InterviewsController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:user_id])
-    @interviews = User.find(params[:user_id]).interviews.includes(:interviewer).order(begin_at: :asc)
+    @interviews = @user.interviews.includes(:interviewer).order(begin_at: :asc)
   end
 
   def update
@@ -53,11 +53,18 @@ class InterviewsController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_interview
+    @interview = Interview.find(params[:id])
+  end
+
   def correct_user
-    user = User.find(params[:user_id])
-    if current_user != user
-      redirect_to user_interviews_path
-    end
+    set_user
+    redirect_to user_interviews_path if current_user != @user
   end
 
   def interview_params
@@ -66,10 +73,6 @@ class InterviewsController < ApplicationController
 
   def others_interview_params
     params.permit(:allowed, :interviewer_id)
-  end
-
-  def set_interview
-    @interview = Interview.find(params[:id])
   end
 
 end
