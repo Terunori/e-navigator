@@ -3,7 +3,8 @@
     = @user.name
     さんの面接一覧
   - else
-    面接一覧
+    = @user.email
+    さんの面接一覧
 
 - if params[:user_id].to_i == current_user.id
   = render :partial => 'my_interviews'
