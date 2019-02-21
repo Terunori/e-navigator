@@ -4,10 +4,7 @@ Rails.application.routes.draw do
     authenticated :user do
       root :to => 'users#index'
       delete 'logout', to: 'devise/sessions#destroy'
-      get 'users/edit_profile', to: 'users/registrations#edit_profile', as: 'edit_profile'
-      patch 'users/update_profile', to: 'users/registrations#update_profile', as: 'update_profile'
-      get 'users/mypage', to: 'users#mypage', as: 'mypage'
-      resources :users, only: [:index] do
+      resources :users, only: [:index, :show, :edit, :update] do
         resources :interviews do
           member do
             patch :allow, as: 'allow'

@@ -1,6 +1,6 @@
 %h2 プロフィール情報を登録してください。
 
-= form_for current_user, url: {action: :update_profile}, method: :patch do |f|
+= form_for current_user, url: {action: :update}, method: :patch do |f|
   %div.form-group
     = f.label :email
     = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
