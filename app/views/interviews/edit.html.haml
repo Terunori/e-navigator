@@ -1,6 +1,6 @@
 %h2 日程を編集してください
 
-= form_with url: user_interview_url(params[:user_id]), method: :patch, local: true do |f|
+= form_with url: user_interview_url, method: :patch, local: true do |f|
   %div.input-group.date#datetimepicker
     %span.input-group-addon
       %span.glyphicon.glyphicon-calendar
@@ -11,7 +11,9 @@
   %div.checkbox_inline
     = f.check_box :allowed, {}, "undecided", @interview.allowed
     承認状態を初期化する場合はチェックしてください  （現在は
-    = @interview.allowed_i18n + '）'
+    - cls_allowed = @interview.allowed
+    %span{class: cls_allowed}= @interview.allowed_i18n
+    ）
 
   %br
 

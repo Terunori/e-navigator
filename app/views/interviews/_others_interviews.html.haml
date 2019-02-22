@@ -1,0 +1,43 @@
+%h3 承認済みの日程
+%table.table.table-hover
+  %tr
+    %th.col-xs-3 面接開始時間
+    %th.col-xs-5 面接官
+    %th.col-xs-2 状態
+    %th.col-xs-2
+  - @interviews.where(allowed: 1).each do |intview|
+    %tr
+      %td= l(intview.begin_at, format: :short)
+      %td
+        - unless intview.interviewer_id == nil
+          - if intview.interviewer.name.present?
+            = intview.interviewer.name.to_s + ' (' +  intview.interviewer.email.to_s + ')'
+          - else
+            = intview.interviewer.email
+      - cls = intview.allowed
+      %td{class: cls}= intview.allowed_i18n
+      %td= link_to "キャンセル", allow_user_interview_path(id: intview.id, allowed: 'undecided'), method: :patch, class: 'btn btn-default'
+
+%h3 その他の日程
+%table.table.table-hover
+  %tr
+    %th.col-xs-3 面接開始時間
+    %th.col-xs-5 面接官
+    %th.col-xs-2 状態
+    %th.col-xs-1
+    %th.col-xs-1
+  - @interviews.where(allowed: [0,2]).each do |intview|
+    %tr
+      %td= l(intview.begin_at, format: :short)
+      %td
+        - unless intview.interviewer_id == nil
+          - if intview.interviewer.name.present?
+            = intview.interviewer.name.to_s + ' (' +  intview.interviewer.email.to_s + ')'
+          - else
+            = intview.interviewer.email
+      - cls = intview.allowed
+      %td{class: cls}= intview.allowed_i18n
+      %td
+        = link_to "承認", allow_user_interview_path(id: intview.id, allowed: 'allowed', interviewer_id: current_user.id), method: :patch, class: 'btn btn-primary'
+      %td
+        = link_to "却下", allow_user_interview_path(id: intview.id, allowed: 'disallowed', interviewer_id: current_user.id), method: :patch, class: 'btn btn-danger'

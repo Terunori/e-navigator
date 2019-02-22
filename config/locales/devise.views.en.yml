@@ -15,6 +15,7 @@ en:
         age: Age
         gender: Gender
         school: School
+        interview: Interview
         encrypted_password: Encrypted password
         failed_attempts: Failed attempts
         last_sign_in_at: Last sign in at
@@ -156,3 +157,8 @@ en:
         female: Female
         male: Male
         others: Others
+      interview:
+        allowed:
+          undecided: Undetermined
+          allowed: Accepted
+          disallowed: Declined
