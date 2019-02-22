@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.assign_attributes(update_user_params)
+    current_user.assign_attributes(update_params)
     if profile_validate && current_user.save
       redirect_to user_path, notice: 'プロフィールを更新しました'
     else
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user.id) if current_user != @user
   end
 
-  def update_user_params
+  def update_params
     params.require(:user).permit(:email, :name, :birthday, :gender, :school)
   end
 
