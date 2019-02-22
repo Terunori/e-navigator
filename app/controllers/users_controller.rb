@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include UsersHelper
-  before_action :correct_user, only: [ :show, :edit, :update ]
+  before_action :set_user, only: %i[show edit update]
+  before_action :correct_user, only: %i[show edit update]
 
   def index
     @users = User.where.not(id: current_user.id).order(id: :asc)
@@ -30,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    set_user
     redirect_to user_path(current_user.id) if current_user != @user
   end
 

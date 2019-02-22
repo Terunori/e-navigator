@@ -1,7 +1,7 @@
 class InterviewsController < ApplicationController
-  before_action :set_user, only: [:index]
-  before_action :correct_user, only: [:new, :create, :edit, :update ,:destroy]
-  before_action :set_interview, only: [ :update, :allow, :edit, :destroy ]
+  before_action :set_user, only: %i[index new create edit update destroy]
+  before_action :correct_user, only: %i[new create edit update destroy]
+  before_action :set_interview, only: %i[update allow edit destroy]
 
   def new
     @interview = Interview.new
@@ -54,7 +54,6 @@ class InterviewsController < ApplicationController
   end
 
   private
-
   def set_user
     @user = User.find(params[:user_id])
   end
@@ -64,7 +63,6 @@ class InterviewsController < ApplicationController
   end
 
   def correct_user
-    set_user
     redirect_to user_interviews_path if current_user != @user
   end
 
