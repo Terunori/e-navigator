@@ -1,0 +1,2 @@
+class InterviewMailer < ApplicationMailer
+end
