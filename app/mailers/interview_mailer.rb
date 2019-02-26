@@ -13,8 +13,6 @@ class InterviewMailer < ApplicationMailer
     @interviewer = interviewer
     @interviewee = interviewee
     @interview_schedules = @interviewee.interviews.where(allowed: 'allowed', interviewer_id: @interviewer.id).order(begin_at: :asc)
-    mail(to: interviewee.email, cc: interviewer.email, subject: '【e-navigator】面接日程が承認されました') do |f|
-      f.text
-    end
+    mail(to: interviewee.email, cc: interviewer.email, subject: '【e-navigator】面接日程が承認されました')
   end
 end
