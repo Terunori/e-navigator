@@ -8,4 +8,11 @@ class InterviewMailer < ApplicationMailer
     @interviewee = cc
     mail(to: send_to.email, cc: cc.email, subject: '【e-navigator】面接希望日が決まりました')
   end
+
+  def apply_schedule_email(interviewer, interviewee)
+    @interviewer = interviewer
+    @interviewee = interviewee
+    @interview_schedule = @interviewee.interviews.where(interviewer_id: @interviewer.id).order(begin_at: :asc).first.begin_at
+    mail(to: interviewee.email, cc: interviewer.email, subject: '【e-navigator】面接日程が承認されました')
+  end
 end

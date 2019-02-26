@@ -61,6 +61,18 @@ class InterviewsController < ApplicationController
     redirect_to user_interviews_path(@user)
   end
 
+  def apply_request
+    @interviewer = current_user
+    @interviewee = User.find(params[:user_id])
+    if @interviewee.interviews.where(interviewer_id: @interviewer.id).present?
+      InterviewMailer.apply_schedule_email(@interviewer, @interviewee).deliver
+      flash[:notice] = '承認した日程を通知しました'
+    else
+      flash[:alert] = '日程を承認してください'
+    end
+    redirect_to user_interviews_path(@interviewee)
+  end
+
   private
   def set_user
     @user = User.find(params[:user_id])

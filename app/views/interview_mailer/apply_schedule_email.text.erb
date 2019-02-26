@@ -1,0 +1,14 @@
+<%= @interviewee.name_email %>様
+CC: <%= @interviewer.name_email %>様
+
+お世話になっております、e-Navigatorです。
+<%= @interviewee.name_email %>さんの面接日程が<%= @interviewer.name_email %>さんにより以下の日程で承認されました。
+
+開始日時: <%= l(@interview_schedule, format: :long_toM) %>
+
+下記URLから日時の確認ができます。
+https://e-navigator-terunori.herokuapp.com/users/<%= @interviewee.id %>/interviews
+
+よろしくお願い致します。
+
+<%= render :partial => 'signature' %>

@@ -1,0 +1,27 @@
+%p
+  =@interviewee.name_email
+  様
+  %br
+  CC:
+  =@interviewer.name_email
+  様
+%br
+%p お世話になっております、e-Navigatorです。
+%p
+  =@interviewee.name_email
+  さんの面接日程が
+  =@interviewer.name_email
+  様により以下の日程で承認されました。
+%p
+  開始日時:
+  &nbsp;
+  =l(@interview_schedule, format: :long_toM)
+%p
+  下記URLから日時の確認ができます。
+%p
+  =link_to(@interviewee.name_email.to_s+'の面接日程一覧', 'https://e-navigator-terunori.herokuapp.com/users/'+@interviewee.id.to_s+'/interviews')
+%br
+%p
+  よろしくお願い致します。
+%br
+  =render :partial => 'signature'

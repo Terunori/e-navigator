@@ -11,6 +11,7 @@ Rails.application.routes.draw do
           end
           collection do
             post :notify_request
+            post :apply_request
           end
         end
       end
