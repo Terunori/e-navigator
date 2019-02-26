@@ -13,7 +13,7 @@
     %tr
       %td= user.email
       %td= user.name
-      %td= user.age if user.birthday.present?
+      %td= user.age
       %td= user.gender_i18n
       %td= user.school
       %td= l(@interviews.where(user_id: user.id).first.begin_at, format: :short) if @interviews.where(user_id: user.id).present?
