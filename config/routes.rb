@@ -9,6 +9,9 @@ Rails.application.routes.draw do
           member do
             patch :allow, as: 'allow'
           end
+          collection do
+            post :notify_request
+          end
         end
       end
     end

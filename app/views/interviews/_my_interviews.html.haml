@@ -1,7 +1,11 @@
-=link_to "新規日程追加", new_user_interview_path, class: 'btn btn-primary'
-
-%br
-%br
+%table
+  %tr
+    %td.col-xs-1
+      =link_to "新規日程追加", new_user_interview_path, class: 'btn btn-primary'
+    %td.col-xs-3
+      = form_with url: notify_request_user_interviews_url, method: 'post', local: true do |form|
+        %td.col-xs-5= form.collection_select :interviewer_id, User.where.not(id: current_user.id), :id, :email, {:prompt => true}, {class: 'form-control'}
+        %td.col-xs-1= form.submit ('メール送信'), class: 'btn btn-default'
 
 %h3 承認済みの日程
 %table.table.table-hover

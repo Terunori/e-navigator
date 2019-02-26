@@ -1,6 +1,6 @@
 class InterviewsController < ApplicationController
-  before_action :set_user, only: %i[index new create edit update destroy]
-  before_action :correct_user, only: %i[new create edit update destroy]
+  before_action :set_user, only: %i[index new create edit update destroy notify_request]
+  before_action :correct_user, only: %i[new create edit update destroy notify_request]
   before_action :set_interview, only: %i[update allow edit destroy]
 
   def new
@@ -53,6 +53,14 @@ class InterviewsController < ApplicationController
     end
   end
 
+  def notify_request
+    @interviewer = User.find(request_params[:interviewer_id])
+    @user = current_user
+    InterviewMailer.request_schedule_email(@interviewer, @user).deliver_later
+    flash[:notice] = (@interviewer.name.present? ? @interviewer.name : @interviewer.email) + '様に申請が完了しました'
+    redirect_to user_interviews_path(@user)
+  end
+
   private
   def set_user
     @user = User.find(params[:user_id])
@@ -76,6 +84,10 @@ class InterviewsController < ApplicationController
 
   def allow_params
     params.permit(:allowed, :interviewer_id)
+  end
+
+  def request_params
+    params.permit(:interviewer_id)
   end
 
 end
