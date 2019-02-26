@@ -64,7 +64,7 @@ class InterviewsController < ApplicationController
   def apply_request
     @interviewer = current_user
     @interviewee = User.find(params[:user_id])
-    if @interviewee.interviews.where(interviewer_id: @interviewer.id).present?
+    if @interviewee.interviews.where(allowed: 'allowed', interviewer_id: @interviewer.id).present?
       InterviewMailer.apply_schedule_email(@interviewer, @interviewee).deliver
       flash[:notice] = '承認した日程を通知しました'
     else

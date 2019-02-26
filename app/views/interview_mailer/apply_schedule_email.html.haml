@@ -13,9 +13,9 @@
   =@interviewer.name_email
   様により以下の日程で承認されました。
 %p
-  開始日時:
-  &nbsp;
-  =l(@interview_schedule, format: :long_toM)
+  - @interview_schedules.each do |schedule|
+    =l(schedule.begin_at, format: :long_toM)
+    %br
 %p
   下記URLから日時の確認ができます。
 %p

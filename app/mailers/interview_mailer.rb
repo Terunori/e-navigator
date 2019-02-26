@@ -12,7 +12,9 @@ class InterviewMailer < ApplicationMailer
   def apply_schedule_email(interviewer, interviewee)
     @interviewer = interviewer
     @interviewee = interviewee
-    @interview_schedule = @interviewee.interviews.where(interviewer_id: @interviewer.id).order(begin_at: :asc).first.begin_at
-    mail(to: interviewee.email, cc: interviewer.email, subject: '【e-navigator】面接日程が承認されました')
+    @interview_schedules = @interviewee.interviews.where(allowed: 'allowed', interviewer_id: @interviewer.id).order(begin_at: :asc)
+    mail(to: interviewee.email, cc: interviewer.email, subject: '【e-navigator】面接日程が承認されました') do |f|
+      f.text
+    end
   end
 end
