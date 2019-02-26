@@ -1,10 +1,6 @@
 %h2
-  - if @user.name.present?
-    = @user.name
-    さんの面接一覧
-  - else
-    = @user.email
-    さんの面接一覧
+  = @user.name_email
+  さんの面接一覧
 
 - if params[:user_id].to_i == current_user.id
   = render :partial => 'my_interviews'

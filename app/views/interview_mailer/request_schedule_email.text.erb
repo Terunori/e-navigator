@@ -1,8 +1,8 @@
-<%= @interviewer.name.present? ? @interviewer.name : @interviewer.email %>様
-CC: <%= @interviewee.name.present? ? @interviewee.name : @interviewee.email %>
+<%= @interviewer.name_email %>様
+CC: <%= @interviewee.name_email %>
 
 お世話になっております、e-Navigatorです。
-<%= @interviewee.name.present? ? @interviewee.name : @interviewee.email %>様の面接希望日程が決まりました。
+<%= @interviewee.name_email %>さんの面接希望日程が決まりました。
 下記URLから日時の承認をしてください。
 https://e-navigator-terunori.herokuapp.com/users/<%= @interviewee.id %>/interviews
 

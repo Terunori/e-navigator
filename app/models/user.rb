@@ -36,6 +36,10 @@ class User < ApplicationRecord
     (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
   end
 
+  def name_email
+    self.name.present? ? self.name : self.email
+  end
+
   private
   def nullify_interviewer
     Interview.where(interviewer_id: self.id).update_all(interviewer_id: nil, allowed: 0)

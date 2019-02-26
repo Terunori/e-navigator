@@ -57,7 +57,7 @@ class InterviewsController < ApplicationController
     @interviewer = User.find(request_params[:interviewer_id])
     @user = current_user
     InterviewMailer.request_schedule_email(@interviewer, @user).deliver_later
-    flash[:notice] = (@interviewer.name.present? ? @interviewer.name : @interviewer.email) + '様に申請が完了しました'
+    flash[:notice] = (@interviewer.name_email) + '様に申請が完了しました'
     redirect_to user_interviews_path(@user)
   end
 
