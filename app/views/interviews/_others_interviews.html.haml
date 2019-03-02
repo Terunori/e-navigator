@@ -1,4 +1,6 @@
-=link_to '承認した日程をメールで通知する', apply_request_user_interviews_path, method: :post, class: 'btn btn-default'
+%div
+  %div.kakumaru.size_big.bg-primary &#x2139;
+  %span.text-muted 日程を承認もしくはキャンセルすると面接者にメールで通知します
 
 %h3 承認済みの日程
 %table.table.table-hover
@@ -7,7 +9,7 @@
     %th.col-xs-5 面接官
     %th.col-xs-2 状態
     %th.col-xs-2
-  - @interviews.where(allowed: 1).each do |intview|
+  - @interviews.allowed.each do |intview|
     %tr
       %td= l(intview.begin_at, format: :short)
       %td
