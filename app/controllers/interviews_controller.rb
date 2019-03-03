@@ -57,8 +57,9 @@ class InterviewsController < ApplicationController
 
   def notify_request
     @interviewer = User.find(request_params[:interviewer_id])
-    if @user.interviews.where(allowed: 'undecided').present?
-      InterviewMailer.request(@interviewer, @user).deliver_later
+    if @user.interviews.undecided.present?
+      # TODO ifであらーと？
+      InterviewMailer.request_schedule(@interviewer, @user).deliver_now
       flash[:notice] = (@interviewer.name_email) + '様に申請が完了しました'
     else
       flash[:alert] = '有効な日程がありません　新規日程追加より面接を希望する日時を設定してください'
@@ -80,12 +81,12 @@ class InterviewsController < ApplicationController
   end
 
   def notify_cancel
-    InterviewMailer.cancel(current_user, @user, @interview).deliver_later
+    InterviewMailer.cancel_schedule(current_user, @user, @interview).deliver_now
     flash[:notice] = (@user.name_email) + 'さんに承認日程のキャンセルを通知しました'
   end
 
   def notify_allow
-    InterviewMailer.allow(current_user, @user, @interview).deliver_later
+    InterviewMailer.allow_schedule(current_user, @user, @interview).deliver_now
     flash[:notice] = (@user.name_email) + 'さんに' + l(@interview.begin_at, format: :long_toM) + 'から始まる面接の承認を通知しました'
   end
 
