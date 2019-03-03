@@ -20,7 +20,7 @@
             = intview.interviewer.email
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
-      %td= link_to "キャンセル", allow_user_interview_path(id: intview.id, allowed: 'undecided'), method: :patch, class: 'btn btn-default'
+      %td= link_to "キャンセル", allow_user_interview_path(id: intview.id, allowed: 'undecided'), method: :patch, class: 'btn btn-default', data: {confirm: l(intview.begin_at, format: :long_toM)+'に設定されている面接をキャンセルしますか？'}
 
 %h3 その他の日程
 %table.table.table-hover
@@ -42,6 +42,6 @@
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
       %td
-        = link_to "承認", allow_user_interview_path(id: intview.id, allowed: 'allowed', interviewer_id: current_user.id), method: :patch, class: 'btn btn-primary'
+        = link_to "承認", allow_user_interview_path(id: intview.id, allowed: 'allowed', interviewer_id: current_user.id), method: :patch, class: 'btn btn-primary', data: {confirm: l(intview.begin_at, format: :long_toM)+'の面接を承認しますか？'}
       %td
         = link_to "却下", allow_user_interview_path(id: intview.id, allowed: 'disallowed', interviewer_id: current_user.id), method: :patch, class: 'btn btn-danger'
