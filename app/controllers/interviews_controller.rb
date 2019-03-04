@@ -58,7 +58,6 @@ class InterviewsController < ApplicationController
   def notify_request
     @interviewer = User.find(request_params[:interviewer_id])
     if @user.interviews.undecided.present?
-      # TODO ifであらーと？
       InterviewMailer.request_schedule(@interviewer, @user).deliver_now
       flash[:notice] = (@interviewer.name_email) + '様に申請が完了しました'
     else
