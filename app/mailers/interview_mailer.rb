@@ -3,7 +3,7 @@ class InterviewMailer < ApplicationMailer
           bcc: ENV['EMAIL_ADDRESS'],
           reply_to: ENV['EMAIL_ADDRESS']
 
-  def request_schedule(interviewer, interviewee)
+  def request_approval(interviewer, interviewee)
     @interviewer = interviewer
     @interviewee = interviewee
     mail(to: @interviewer.email, cc: @interviewee.email, subject: '【e-navigator】面接希望日が決まりました')

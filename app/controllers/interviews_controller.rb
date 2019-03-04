@@ -58,7 +58,7 @@ class InterviewsController < ApplicationController
   def notify_request
     @interviewer = User.find(request_params[:interviewer_id])
     if @user.interviews.undecided.present?
-      InterviewMailer.request_schedule(@interviewer, @user).deliver_now
+      InterviewMailer.request_approval(@interviewer, @user).deliver_now
       flash[:notice] = (@interviewer.name_or_email) + '様に申請が完了しました'
     else
       flash[:alert] = '有効な日程がありません　新規日程追加より面接を希望する日時を設定してください'
