@@ -36,7 +36,7 @@ class User < ApplicationRecord
     (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
   end
 
-  def name_email
+  def name_or_email
     self.name.present? ? self.name : self.email
   end
 

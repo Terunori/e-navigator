@@ -1,18 +1,19 @@
 %p
-  =@interviewer.name_email
+  =@interviewer.name_or_email
   様
   %br
   CC:
-  =@interviewee.name_email
+  =@interviewee.name_or_email
+  様
 %br
 %p お世話になっております、e-Navigatorです。
 %p
-  =@interviewee.name_email
+  =@interviewee.name_or_email
   さんの面接希望日程が決まりました。
 %p
   下記URLから日時の承認をしてください。
 %p
-  =link_to(@interviewee.name_email.to_s+'さんの面接希望日程一覧', 'https://e-navigator-terunori.herokuapp.com/users/'+@interviewee.id.to_s+'/interviews')
+  =link_to(@interviewee.name_or_email.to_s+'さんの面接希望日程一覧', 'https://e-navigator-terunori.herokuapp.com/users/'+@interviewee.id.to_s+'/interviews')
 %br
 %p
   よろしくお願い致します。

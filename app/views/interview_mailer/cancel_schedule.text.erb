@@ -1,8 +1,8 @@
-<%= @interviewee.name_email %>様
-CC: <%= @interviewer.name_email %>様
+<%= @interviewee.name_or_email %>様
+CC: <%= @interviewer.name_or_email %>様
 
 お世話になっております、e-Navigatorです。
-<%= @interviewee.name_email %>さんの以下の面接日程が<%= @interviewer.name_email %>様によりキャンセルされました。
+<%= @interviewee.name_or_email %>さんの以下の面接日程が<%= @interviewer.name_or_email %>様によりキャンセルされました。
 
 日程:&nbsp;<%= l(@interview.begin_at, format: :long_toM) %>
 
