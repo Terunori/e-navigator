@@ -1,3 +1,17 @@
 // Place all the styles related to the interviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.kakumaru {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  text-align: center;
+  flex-flow: column;
+  vertical-align: center;
+}
+div.size_big{
+  width: 1.5em;
+  height: 1.5em;
+}

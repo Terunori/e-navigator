@@ -1,7 +1,11 @@
-=link_to "新規日程追加", new_user_interview_path, class: 'btn btn-primary'
-
-%br
-%br
+%table
+  %tr
+    %td.col-xs-1
+      =link_to "新規日程追加", new_user_interview_path, class: 'btn btn-primary'
+    %td.col-xs-3
+      = form_with url: notify_request_user_interviews_url, method: 'post', local: true do |form|
+        %td.col-xs-5= form.collection_select :interviewer_id, User.where.not(id: current_user.id), :id, :email, {:prompt => true}, {class: 'form-control'}
+        %td.col-xs-1= form.submit ('メール送信'), class: 'btn btn-default'
 
 %h3 承認済みの日程
 %table.table.table-hover
@@ -11,7 +15,7 @@
     %th.col-xs-2 状態
     %th.col-xs-1
     %th.col-xs-1
-  - @interviews.where(allowed: 1).each do |intview|
+  - @interviews.allowed.each do |intview|
     %tr
       %td= l(intview.begin_at, format: :short)
       %td
@@ -22,7 +26,7 @@
             = intview.interviewer.email
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
-      %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
+      %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-default'
       %td= link_to "削除", user_interview_path(id: intview.id), method: :delete, class: 'btn btn-danger'
 
 %h3 その他の日程
@@ -44,5 +48,5 @@
             = intview.interviewer.email
       - cls = intview.allowed
       %td{class: cls}= intview.allowed_i18n
-      %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-primary'
+      %td= link_to "編集", edit_user_interview_path(id: intview.id), class: 'btn btn-default'
       %td= link_to "削除", user_interview_path(id: intview.id), method: :delete, class: 'btn btn-danger'

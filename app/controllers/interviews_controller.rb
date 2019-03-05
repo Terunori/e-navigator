@@ -1,6 +1,6 @@
 class InterviewsController < ApplicationController
-  before_action :set_user, only: %i[index new create edit update destroy]
-  before_action :correct_user, only: %i[new create edit update destroy]
+  before_action :set_user, only: %i[index new create edit update allow destroy notify_request]
+  before_action :correct_user, only: %i[new create edit update destroy notify_request]
   before_action :set_interview, only: %i[update allow edit destroy]
 
   def new
@@ -32,6 +32,8 @@ class InterviewsController < ApplicationController
     @interview.interviewer_id = nil if allow_params[:allowed] == 'undecided'
 
     if @interview.save
+      notify_cancel if allow_params[:allowed] == 'undecided'
+      notify_allow if allow_params[:allowed] == 'allowed'
       redirect_to user_interviews_path
     else
       render 'edit'
@@ -53,6 +55,17 @@ class InterviewsController < ApplicationController
     end
   end
 
+  def notify_request
+    @interviewer = User.find(request_params[:interviewer_id])
+    if @user.interviews.undecided.present?
+      InterviewMailer.request_approval(@interviewer, @user).deliver_now
+      flash[:notice] = (@interviewer.name_or_email) + '様に申請が完了しました'
+    else
+      flash[:alert] = '有効な日程がありません　新規日程追加より面接を希望する日時を設定してください'
+    end
+    redirect_to user_interviews_path(@user)
+  end
+
   private
   def set_user
     @user = User.find(params[:user_id])
@@ -66,6 +79,16 @@ class InterviewsController < ApplicationController
     redirect_to user_interviews_path if current_user != @user
   end
 
+  def notify_cancel
+    InterviewMailer.cancel_schedule(current_user, @user, @interview).deliver_now
+    flash[:notice] = (@user.name_or_email) + 'さんに承認日程のキャンセルを通知しました'
+  end
+
+  def notify_allow
+    InterviewMailer.allow_schedule(current_user, @user, @interview).deliver_now
+    flash[:notice] = (@user.name_or_email) + 'さんに' + l(@interview.begin_at, format: :long_toM) + 'から始まる面接の承認を通知しました'
+  end
+
   def create_params
     params.permit(:begin_at)
   end
@@ -76,6 +99,10 @@ class InterviewsController < ApplicationController
 
   def allow_params
     params.permit(:allowed, :interviewer_id)
+  end
+
+  def request_params
+    params.permit(:interviewer_id)
   end
 
 end

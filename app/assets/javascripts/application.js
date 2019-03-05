@@ -17,6 +17,7 @@
 //= require moment
 //= require moment/ja
 //= require bootstrap-datetimepicker
+//= require data-confirm-modal
 
 $(function () {
   $('#datetimepicker').datetimepicker();

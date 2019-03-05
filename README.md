@@ -221,6 +221,22 @@ Herokuのタイムゾーン設定 (JST)
 heroku config:add TZ=Asia/Tokyo
 ```
 
+Herokuの環境変数の設定
+https://qiita.com/colorrabbit/items/18db3c97734f32ebdfde
+```
+# 環境変数一覧
+$ heroku config
+
+# 環境変数名を指定して参照
+$ heroku config:get ENV_VAR_NAME
+
+# 追加 (一応addも使えます)
+$ heroku config:set ENV_VAR_NAME="value"
+
+# 削除 (一応removeも使えます)
+$ heroku config:unset ENV_VAR_NAME
+```
+
 正しくデプロイできたか確認してみましょう。
 
 ```

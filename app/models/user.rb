@@ -24,15 +24,20 @@ class User < ApplicationRecord
 
   enum gender: { female: 0, male: 1, others: 2 }
 
-  # TODO before_destroy
   before_destroy :nullify_interviewer, prepend: true
 
   has_many :interviews, dependent: :destroy
   belongs_to :interviewer, class_name: 'Interview', foreign_key: :id, optional: true
 
   def age
-    date_format = "%Y%m%d"
+    return unless birthday
+
+    date_format = '%Y%m%d'
     (Date.today.strftime(date_format).to_i - birthday.strftime(date_format).to_i) / 10000
+  end
+
+  def name_or_email
+    self.name.present? ? self.name : self.email
   end
 
   private

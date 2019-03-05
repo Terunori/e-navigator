@@ -1,0 +1,14 @@
+<%= @interviewee.name_or_email %>様
+CC: <%= @interviewer.name_or_email %>様
+
+お世話になっております、e-Navigatorです。
+<%= @interviewee.name_or_email %>さんの以下の面接日程が<%= @interviewer.name_or_email %>様によりキャンセルされました。
+
+日程:&nbsp;<%= l(@interview.begin_at, format: :long_toM) %>
+
+下記URLからすべての日時の確認ができます。
+https://e-navigator-terunori.herokuapp.com/users/<%= @interviewee.id %>/interviews
+
+よろしくお願い致します。
+
+<%= render :partial => 'signature' %>

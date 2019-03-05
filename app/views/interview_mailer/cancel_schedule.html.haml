@@ -1,0 +1,26 @@
+%p
+  =@interviewee.name_or_email
+  様
+  %br
+  CC:
+  =@interviewer.name_or_email
+  様
+%br
+%p お世話になっております、e-Navigatorです。
+%p
+  =@interviewee.name_or_email
+  さんの以下の面接日程が
+  =@interviewer.name_or_email
+  様によりキャンセルされました。
+%p
+  日程:&nbsp;
+  =l(@interview.begin_at, format: :long_toM)
+%p
+  下記URLからすべての日時の確認ができます。
+%p
+  =link_to(@interviewee.name_or_email.to_s+'さんの面接日程一覧', 'https://e-navigator-terunori.herokuapp.com/users/'+@interviewee.id.to_s+'/interviews')
+%br
+%p
+  よろしくお願い致します。
+%br
+  =render :partial => 'signature'
